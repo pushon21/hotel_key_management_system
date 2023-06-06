@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin_Employee_ Management_System_Table</title>
+
+    <!-- Goole Fonts -->
+    <!-- Icone Fonts -->
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+    <!-- Main Css -->
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/table.css" />
+    <link rel="stylesheet" href="assets/css/table_responsive.css" />
+  </head>
+
+  <body>
+    <div class="main_section">
+      <div class="container">
+        <div class="header_section">
+            <h1>Welcome To The Key Management System</h1>
+          </div>
+        <div class="table_section">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Name</th>
+              <th>Take/Give</th>
+              <th>Floor</th>
+              <th>Room</th>
+              
+            </tr>
+          </thead>
+
+          <tbody class="tbl-accordion-header" id="datatable">
+            <tr>
+              <td>
+                <a data-toggle="toggle"><strong>21/09/22</strong></a>
+              </td>
+              <td>6:40 PM</td>
+              <td>Sm Pushon</td>
+              <td>Take</td>
+              <td>Front office</td>
+              <td>Office room</td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="print_btn" onclick="window.print()">Print</button>
+    </div>
+        <hr>
+    <div class="date" style="text-align: center">
+      <b>Input Date: </b><input type="text" class="startdate" id="getdate"> <button onclick="get_data_jump()">Go</button>
+    </div>
+      </div>
+    </div>
+    <!-- All Js File -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/modernizr-3.11.2.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+
+    <script src="assets/js/jquery-ui.js"></script>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet" />
+
+    <script src="assets/js/keyms.js"></script>
+    <script>
+
+      $( ".startdate" ).datepicker({
+        dateFormat: 'dd/mm/yy',//check change
+        changeMonth: true,
+        changeYear: true
+      });
+
+      const date = new Date();
+      const zeroPad = (num, places) => String(num).padStart(places, '0');
+
+      let day = date.getDate();
+      day = zeroPad(day,2);
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear();
+     // var dateformat = `${year}-${month}-${day}`;
+      var dateformat = `${day}/${month}/${year}`;
+      document.getElementById("getdate").value = dateformat;
+
+
+
+
+      function get_data_by_date(datexyz)
+      {
+        $.post(api_url, {action: 'data_by_date',tdate: datexyz}, function(result){
+          if(result.status === 200)
+          {
+            //select table
+            var datatablex = document.getElementById("datatable");
+            datatablex.innerHTML = '';
+
+            for (i=0;i < result.data.length;i++)
+            {
+              // #${result.data[i].datetime}
+
+              let elem = document.createElement('tr');
+              let trvals = `<td>${result.data[i].date}</td><td>${result.data[i].datetime}</td><td>${result.data[i].name}</td><td>${result.data[i].giveortake}</td><td>${result.data[i].floor}</td><td>${result.data[i].room}</td>`;
+              elem.innerHTML = trvals;
+              datatablex.append(elem);
+            }
+          }else{
+            alert('you are not admin');
+            location.href = "admin_n&t.html";
+          }
+        });
+
+      }
+      function get_data_jump()
+      {
+        let dateval = document.getElementById("getdate").value;
+        get_data_by_date(dateval)
+      }
+
+
+      get_data_by_date(dateformat);
+
+    </script>
+
+  <style>
+    table tr td:first-letter{
+      text-transform:capitalize;
+    }
+  </style>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+/** 
+Template Name: AMBER - HTML Template
+Template URL: http://coderitsoltion.com
+Author: Coder IT Solution
+Author URI: http://coderitsoltion.com
+Description:AMBER HTML Template
+Keywords: html,css,js
+
+**/
+/*********************************/
+/***********1.GLOBAL CSS*********/
+/********************************/
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+::-moz-selection {
+  background: #fff;
+  color: #199d99;
+}
+::selection {
+  background: #fff;
+  color: #199d99;
+}
+/* :root {
+    --blue: #199d99;
+    --white: #ffffff;
+  } */
+html {
+  font-size: 62.5%;
+  line-height: 25px;
+  line-height: 25px;
+  line-height: 2.5rem;
+}
+button:focus {
+  outline: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+/*************************/
+/**** Header TOP CSS *****/
+/*************************/
+:root {
+  --primary-light: #8abdff;
+  --primary: #6d5dfc;
+  --primary-dark: #5b0eeb;
+  --white: #ffffff;
+  --greyLight-1: #e4ebf5;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #9baacf;
+}
+.main_section {
+	border: 6px solid #b1cbff;
+	width: 100%;
+	height: 100vh;
+	background: var(--greyLight-1);
+}
+.header_section {
+  margin-top: 26px;
+  text-align: center;
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+    -0.2rem -0.2rem 0.5rem var(--white);
+  border-radius: 6px;
+}
+.header_section h1 {
+  font-family: ui-sans-serif;
+  font-size: 29px;
+  font-weight: 600;
+
+  color: #333;
+
+  line-height: 59px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 50px auto;
+}
+
+th {
+  background: #0068ae;
+  color: white;
+  font-weight: bold;
+}
+
+td,
+th {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  font-size: 18px;
+}
+
+.tbl-accordion-header a {
+  color: #28c76f !important;
+}
+
+.tbl-accordion-body {
+  display: none;
+}
+
+.tbl-accordion-body td {
+  border-bottom: 0px;
+}
+
+.tbl-accordion-body tr:last-child {
+  border-bottom: 1px solid #ccc;
+}
+.table_section {
+  width: 100%;
+  text-align: center;
+}
+
+.print_btn {
+	padding: 9px 39px 9px 39px;
+	border-radius: 9px;
+	font-weight: 600;
+	background-color: #c0e2ff91;
+	border: 8px snow;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.print_btn:hover {
+	box-shadow: rgba(151, 194, 249, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+	background-color: #6ed6ffba;
+	transition: 0.6s;
+}
+
+.date {
+	padding: 19px 3px 19px 3px;
+	width: 100%;
+}
+
+/*************************/
+/**** Header TOP CSS *****/
+/*************************/

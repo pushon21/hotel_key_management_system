@@ -1,0 +1,48 @@
+@media only screen and (max-width: 800px) {
+  body {
+    background-color: lightblue;
+  }
+
+  .card {
+    padding: 30px;
+
+    height: 100%;
+    border-radius: 16px;
+    box-shadow: rgba(43, 131, 206, 0.64) 3px 3px 6px 0px inset,
+      rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    font-family: ui-sans-serif;
+  }
+
+  .form_section_two {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .clock_position {
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  .header_section {
+    width: 100%;
+    height: 95%;
+    border-radius: 50%;
+    box-shadow: rgba(37, 121, 255, 0) 0px 2px 4px,
+      rgba(0, 0, 0, 0) 0px 7px 13px -3px,
+      rgba(52, 143, 185, 0) 0px -3px 0px inset;
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+  }
+  .form_section_one {
+    padding-top: 23px;
+    margin: 0px;
+  }
+  .main_section {
+    border: 6px solid #b1cbff;
+    width: 100%;
+    background: var(--greyLight-1);
+    padding: 10px;
+  }
+}

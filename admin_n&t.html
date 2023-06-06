@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin_Key_management_system</title>
+
+    <!-- Goole Fonts -->
+    <!-- Icone Fonts -->
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+    <!-- Main Css -->
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/n&t_admin.css" />
+    <link rel="stylesheet" href="assets/css/n&t_responsive _admin.css" />
+  </head>
+
+  <body>
+    <section class="main_section">
+      <div class="container">
+        <div class="responsive_section">
+          <div class="header_section">
+            <div class="clock_position">
+              <div class="clock">
+                <div class="hand hours"></div>
+                <div class="hand minutes"></div>
+                <div class="hand seconds"></div>
+                <div class="point"></div>
+                <div class="marker">
+                  <span class="marker__1"></span>
+                  <span class="marker__2"></span>
+                  <span class="marker__3"></span>
+                  <span class="marker__4"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row form_section_one">
+            <div class="col-12 form_section_two">
+              <div class="form">
+                <form action="connect.php" method="post">
+                  <div class="card">
+                    <section>
+                      <h1>Welcome Back</h1>
+                    </section>
+                    <div class="box">
+                      <input type="text" name="name" id="adminname" required />
+                      <span>Name</span>
+                      <i></i>
+                    </div>
+                    <div class="box">
+                      <input type="password" name="password" id="adminpassword" required />
+                      <span>password</span>
+                      <i></i>
+                    </div>
+                    <a href="#" type="submit" class="submit-btn" onclick="admin_login()">Log in</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container foot">
+
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="index.html" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="NnT.html" class="nav-link px-2 text-muted">User</a></li>
+                <li class="nav-item"><a href="admin_n&t.html" class="nav-link px-2 text-muted">Admin</a></li>
+            </ul>
+            <p class="text-center text-muted">© 2022 Company, Inc</p>
+        </footer>
+
+  </div>
+    </section>
+
+    <!-- All Js File -->
+    <script src="assets/js/clock.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/modernizr-3.11.2.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/keyms.js"></script>
+    <script>
+
+      function admin_login()
+      {
+        let adminname = document.getElementById('adminname');
+        let adminpassword = document.getElementById('adminpassword');
+
+        $.post(api_url, {action: 'loginadmin',adminname: adminname.value,adminpassword:adminpassword.value}, function(result){
+         if(result.status === 200)
+         {
+           location.href = "table.html";
+         }else{
+           alert("wrong user-password");
+         }
+        });
+
+      }
+
+    </script>
+  </body>
+</html>

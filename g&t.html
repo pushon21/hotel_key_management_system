@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Key_management_system</title>
+
+    <!-- Goole Fonts -->
+    <!-- Icone Fonts -->
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+    <!-- Main Css -->
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/g&t.css" />
+
+    <link rel="stylesheet" href="assets/css/g&t_responsive.css" />
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.cookie.min.js"></script>
+  </head>
+
+  <body>
+    <section class="main_section">
+      <div class="container">
+        <div class="inner_section">
+          <div class="row header_section">
+            <div class="col-4"></div>
+            <div class="col-4 image">
+              <img src="assets/Images/cover.png" alt="" />
+            </div>
+            <div class="col-4"></div>
+          </div>
+          <div class="menu_section">
+            <div class="give">
+              <a href="dep.html" onclick="gnt_works('give')">Give</a>
+            </div>
+            <div class="take">
+              <a href="dep.html" onclick="gnt_works('take')">Take</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="table_section" id="datatablennx">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Name</th>
+            <th>Take/Give</th>
+            <th>Floor</th>
+            <th>Room</th>
+
+          </tr>
+          </thead>
+
+          <tbody class="tbl-accordion-header" id="datatable">
+
+          </tbody>
+        </table>
+
+      </div>
+        <button onclick="printDiv('datatablennx')" style="display: none">Print</button>
+        <div style="text-align: center">
+            <b>Input Date: </b><input type="text" class="startdate" id="getdate"> <button onclick="get_data_jump()">Go</button>
+        </div>
+
+
+        <!--
+        <div id="myinfos" style="display: none">
+            <div id="myinfo_info">
+
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h2>Your keys</h2>
+                </div>
+                <table class="table">
+                    <thead>
+                    <tr><th>Floor</th><th>Room</th> <th>Date</th> <th>Time</th></tr>
+                    </thead>
+                    <tbody id="myinfo_table">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        -->
+
+
+
+      <div class="container">
+
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="index.html" class="nav-link px-2 text-muted"><b>Home</b></a></li>
+            <li class="nav-item"><a href="NnT.html" class="nav-link px-2 text-muted"><b>User</b></a></li>
+            <li class="nav-item"><a href="admin_n&t.html" class="nav-link px-2 text-muted"><b>Admin</b></a></li>
+          </ul>
+          <p class="text-center text-muted">© 2022 Company, Inc</p>
+        </footer>
+
+      </div>
+
+    </section>
+
+    <!-- All Js File -->
+
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/modernizr-3.11.2.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/jquery-ui.js"></script>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet" />
+
+    <script src="assets/js/keyms.js"></script>
+    <script>
+
+
+      gnt_works();
+      // myinfos
+
+      function load_myinfos()
+      {
+        let username = get_user();
+
+        // $.post(api_url, {action: 'getmyinfo',username: username}, function(result){
+        //   //alert(result.data.length)
+        // });
+
+        $.post(api_url, {action: 'getmyinfo',username: username}, function(result){
+        // result = JSON.parse(result);
+         // alert(result.length)
+          let xtbl = document.getElementById('myinfo_table');
+
+          const d = new Date();
+          let time = d.getTime();
+
+          for(i=0;i<result.data.length;i++)
+          {
+           // alert(result.data.length)
+            let elem = document.createElement('tr');
+
+            if(result.data[i].giveortake === 'take')
+            {
+             // alert(result.data[i].id);
+
+              let humantime = result.data[i].time;
+              //let humantime =  time;
+
+              elem.innerHTML = `<td>${result.data[i].floor}</td><td>${result.data[i].room}</td><td>${result.data[i].tdate}</td><td>${humantime} ago</td>`;
+              xtbl.append(elem);
+            }else{
+              // elem.textContent = ``;
+            }
+
+
+          }
+        });
+      }
+
+      load_myinfos();
+    </script>
+
+    <script>
+
+      $( ".startdate" ).datepicker({
+        dateFormat: 'dd/mm/yy',//check change
+        changeMonth: true,
+        changeYear: true
+      });
+
+      const date = new Date();
+      const zeroPad = (num, places) => String(num).padStart(places, '0');
+
+      let day = date.getDate();
+      day = zeroPad(day,2);
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear();
+      // var dateformat = `${year}-${month}-${day}`;
+      var dateformat = `${day}/${month}/${year}`;
+      document.getElementById("getdate").value = dateformat;
+
+
+
+
+      function get_data_by_date(datexyz)
+      {
+        $.post(api_url, {action: 'data_by_date',tdate: datexyz}, function(result){
+
+            //select table
+            var datatablex = document.getElementById("datatable");
+            datatablex.innerHTML = '';
+
+            for (i=0;i < result.data.length;i++)
+            {
+              // #${result.data[i].datetime}
+
+              let elem = document.createElement('tr');
+              let trvals = `<td>${result.data[i].date}</td><td>${result.data[i].datetime}</td><td>${result.data[i].name}</td><td>${result.data[i].giveortake}</td><td>${result.data[i].floor}</td><td>${result.data[i].room}</td>`;
+              elem.innerHTML = trvals;
+              datatablex.append(elem);
+            }
+
+        });
+
+      }
+      function get_data_jump()
+      {
+        let dateval = document.getElementById("getdate").value;
+        get_data_by_date(dateval)
+      }
+
+
+      get_data_by_date(dateformat);
+
+    </script>
+    <style>
+      table tr td:first-letter{
+        text-transform:capitalize;
+      }
+    </style>
+  </body>
+</html>

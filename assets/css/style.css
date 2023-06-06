@@ -1,0 +1,139 @@
+/** 
+Template Name: AMBER - HTML Template
+Template URL: http://coderitsoltion.com
+Author: Coder IT Solution
+Author URI: http://coderitsoltion.com
+Description:AMBER HTML Template
+Keywords: html,css,js
+
+**/
+/*********************************/
+/***********1.GLOBAL CSS*********/
+/********************************/
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-family: ui-sans-serif;
+}
+::-moz-selection {
+  background: #fff;
+  color: #199d99;
+}
+::selection {
+  background: #fff;
+  color: #199d99;
+}
+:root {
+  --blue: #199d99;
+  --white: #ffffff;
+}
+html {
+  font-family: ui-sans-serif;
+  font-size: 62.5%;
+  line-height: 25px;
+  line-height: 25px;
+  line-height: 2.5rem;
+}
+button:focus {
+  outline: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+/*************************/
+/**** Header TOP CSS *****/
+/*************************/
+
+:root {
+  --primary-light: #8abdff;
+  --primary: #6d5dfc;
+  --primary-dark: #5b0eeb;
+  --white: #ffffff;
+  --greyLight-1: #e4ebf5;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #9baacf;
+}
+.main_section {
+  border: 6px solid #b1cbff;
+  width: 100%;
+  background: var(--greyLight-1);
+}
+.header_section {
+  margin-top: 26px;
+  text-align: center;
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+    -0.2rem -0.2rem 0.5rem var(--white);
+  border-radius: 6px;
+}
+.header_section h1 {
+  font-family: ui-sans-serif;
+  font-size: 29px;
+  font-weight: 600;
+
+  color: #333;
+
+  line-height: 59px;
+}
+.logo {
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+    -0.2rem -0.2rem 0.5rem var(--white);
+}
+.image_section {
+  text-align: center;
+}
+
+.image_section {
+  padding-top: 33px;
+}
+.btn__primary {
+  text-align: center;
+  margin-top: 36px;
+}
+.btn__primary a {
+  background: var(--primary);
+  box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-light),
+    inset -0.2rem -0.2rem 1rem var(--primary-dark), 0.3rem 0.3rem 0.6rem #78829f,
+    -0.2rem -0.2rem 0.5rem var(--white);
+  padding: 16px 79px 13px 79px;
+  border-radius: 19px;
+  color: #fff;
+  font-size: 20px;
+  transition: 0.3s ease;
+  font-weight: 400;
+}
+.btn__primary a:hover {
+  color: #ddd;
+  box-shadow: rgba(0, 0, 0, 0.68) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.48) -3px -3px 6px 1px inset;
+}
+
+.body_section {
+	box-shadow: 0.8rem 0.8rem 1.4rem var(--greyLight-2), -0.2rem -0.2rem 1.8rem var(--white);
+	width: 100%;
+	height: 45rem;
+	border-radius: 2rem;
+	margin-top: 23px;
+}
+/*************************/
+/**** Header TOP CSS *****/
+/*************************/

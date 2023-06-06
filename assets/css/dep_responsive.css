@@ -1,0 +1,92 @@
+@media only screen and (max-width: 990px) {
+  body {
+    background-color: lightblue;
+  }
+  .menu a {
+    background: var(--primary);
+    box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-light),
+      inset -0.2rem -0.2rem 1rem var(--primary-dark),
+      0.3rem 0.3rem 0.6rem #78829f, -0.2rem -0.2rem 0.5rem var(--white);
+    padding: 13px 69px 13px 69px;
+    border-radius: 19px;
+    color: #fff;
+    font-size: 16px;
+    transition: 0.3s ease;
+    font-weight: 300;
+  }
+  .menu_section {
+    padding: 3px;
+  }
+  .single_menu {
+    padding: 13px;
+  }
+  .all_menu {
+    margin-top: 26px;
+  }
+  .main_section {
+    border: 6px solid #b1cbff;
+    width: 100%;
+    height: 100%;
+    background: var(--greyLight-1);
+    padding: 10px 5px 10px 5px;
+  }
+  .header_section h1 {
+    font-family: ui-sans-serif;
+    font-size: 23px;
+    font-weight: 600;
+    color: #333;
+    line-height: 59px;
+  }
+  .header_section {
+    margin-top: 13px;
+    text-align: center;
+    box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+      -0.2rem -0.2rem 0.5rem var(--white);
+    border-radius: 6px;
+  }
+
+  .dropbtn {
+    background-color: #181e7de8;
+    color: #fff;
+    padding: 7px 13px 7px 13px;
+    font-size: 16px;
+    border: 1px solid #002a8c;
+    cursor: pointer;
+    border-radius: 13px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  }
+
+  .dropdown-content {
+    text-align: center;
+    display: none;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 93%;
+    padding: 6px 73px 6px 73px;
+    background: #0000003b;
+    border-radius: 17px;
+    border: 1px solid #31100094;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    margin: 9px 9px 9px 9px;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+      display: block;
+  }
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+  }
+}
